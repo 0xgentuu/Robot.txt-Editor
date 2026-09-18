@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.editor-panel {
+    width: 60%;
+    padding: 30px;
+}
+
+.editor-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #1e1e1e;
+}
+
+#highlight-content,
+#editor {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    font-family: monospace;
+    font-size: 16px;
+    line-height: 1.5;
+
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+#highlight-content {
+    color: white;
+    pointer-events: none;
+}
+
+#editor {
+    background: transparent;
+    color: transparent;
+    caret-color: white;
+
+    resize: none;
+    border: none;
+    outline: none;
+}
+
+.tester-panel {
+    width: 40%;
+    padding: 30px;
+    background: #181818;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#result-box {
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background: #333;
+}
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots.txt Checker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src = "script.js" defer> </script>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- LEFT SIDE -->
+        <section class="editor-panel">
+
+            <h1>ROBOT.TXT EDITOR</h1>
+
+            <div class="editor-wrapper">
+
+                <div id="highlight-content"></div>
+
+                <textarea
+                    id="editor"
+                    spellcheck="false"
+                    placeholder="Write your robots.txt rules here..."
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="tester-panel">
+
+            <h1>Test-Crawler</h1>
+
+            <label for="bot-select">Select Bot</label>
+
+            <select id="bot-select">
+                <option value="*">All Bots (*)</option>
+                <option value="Googlebot">Googlebot</option>
+                <option value="Bingbot">Bingbot</option>
+            </select>
+
+
+            <label for="test-url">Test URL Path</label>
+
+            <input
+                type="text"
+                id="test-url"
+                placeholder="/admin"
+            >
+
+            <button id="test-btn">
+                Test URL
+            </button>
+
+
+            <div id="result-box">
+                RESULT
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
