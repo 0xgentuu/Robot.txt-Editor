@@ -150,13 +150,13 @@ testButton.addEventListener("click", function () {
 
         // FIND THE SELECTED BOT
 
-        if (line.toLowerCase() ===
-            ("user-agent: " + selectedBot).toLowerCase()) {
-
-            insideSection = true;
-
-            continue;
-        }
+if (line.toLowerCase().startsWith("user-agent:")) {
+    const agent = line.split(":").slice(1).join(":").trim();
+    if (agent.toLowerCase() === selectedBot.toLowerCase()) {
+        insideSection = true;
+        continue;
+    }
+}
 
 
         // IF WE ARE INSIDE THE BOT'S SECTION
