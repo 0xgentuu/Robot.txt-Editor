@@ -1,75 +1,150 @@
+/* MY CSS */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
+/* BODY */
+
 body {
     min-height: 100vh;
+
     font-family: Arial, sans-serif;
-    background: #0b0b0f;
-    color: white;
-    padding: 40px;
+
+    background: #090a0d;
+    color: #ffffff;
+
+    padding: 40px 50px;
 }
 
-/* MAIN CONTAINER */
+
+/* MAIN APP */
 
 .app {
-    max-width: 1300px;
-    margin: auto;
+    width: 100%;
+    max-width: 1250px;
+
+    margin: 0 auto;
 }
 
-/* HEADINGS */
 
-h1 {
-    font-size: 32px;
-    margin-bottom: 25px;
+/*  HEADER */
+
+.app-header {
+    margin-bottom: 30px;
 }
 
-.editor-panel h1,
-.tester-panel h1 {
-    font-size: 24px;
-    margin-bottom: 25px;
+.app-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    letter-spacing: -0.5px;
 }
 
-/* TWO COLUMNS */
+.app-header p {
+    color: #8d929c;
+
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* WORKSPACE */
+
+.workspace {
+    display: flex;
+
+    width: 100%;
+
+    border: 1px solid #272a31;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #111318;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* LEFT — EDITOR PANEL */
 
 .editor-panel {
-    width: 60%;
-    padding: 30px;
-    background: #15151a;
-    border: 1px solid #292930;
-    border-radius: 12px 0 0 12px;
+    width: 65%;
+
+    padding: 28px;
+
+    background: #111318;
+
+    border-right: 1px solid #272a31;
 }
+
+
+/* RIGHT — TESTER PANEL */
 
 .tester-panel {
-    width: 40%;
-    padding: 30px;
-    background: #15151a;
-    border: 1px solid #292930;
-    border-left: none;
-    border-radius: 0 12px 12px 0;
+    width: 35%;
+
+    padding: 28px;
+
+    background: #0e1014;
 }
 
-.app {
-    display: flex;
-    align-items: stretch;
+
+/* PANEL HEADINGS */
+
+.editor-panel h2,
+.tester-panel h2 {
+    font-size: 19px;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.3px;
 }
+
+.tester-panel h2 {
+    margin-bottom: 8px;
+}
+
+
+/* TESTER DESCRIPTION */
+
+.tester-description {
+    color: #777d87;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
 
 /* EDITOR */
 
 .editor-wrapper {
     position: relative;
+
     width: 100%;
-    height: 550px;
+    height: 520px;
+
     overflow: hidden;
 
-    background: #0d0d10;
-    border: 1px solid #303038;
-    border-radius: 8px;
+    background: #08090c;
+
+    border: 1px solid #292d35;
+
+    border-radius: 9px;
 }
 
-/* Highlight layer + textarea */
+
+/* HIGHLIGHT + TEXTAREA */
 
 #highlight-content,
 #editor {
@@ -81,10 +156,11 @@ h1 {
     width: 100%;
     height: 100%;
 
-    padding: 24px;
+    padding: 22px;
 
     font-family: "Courier New", monospace;
-    font-size: 16px;
+    font-size: 15px;
+
     line-height: 1.8;
 
     white-space: pre-wrap;
@@ -92,170 +168,298 @@ h1 {
     overflow: auto;
 }
 
-/* Highlight */
+
+/* HIGHLIGHT LAYER */
 
 #highlight-content {
-    color: white;
+    color: #e6e8eb;
+
     pointer-events: none;
 }
 
-/* Textarea */
+
+/* TEXTAREA */
 
 #editor {
     background: transparent;
+
     color: transparent;
-    caret-color: white;
+
+    caret-color: #ffffff;
 
     resize: none;
+
     border: none;
     outline: none;
 }
 
-/* SCROLLBAR */
+
+/* PLACEHOLDER */
+
+#editor::placeholder {
+    color: #59606b;
+
+    opacity: 1;
+}
+
+
+/* EDITOR SCROLLBAR */
 
 #editor::-webkit-scrollbar,
 #highlight-content::-webkit-scrollbar {
     width: 8px;
 }
 
+#editor::-webkit-scrollbar-track,
+#highlight-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 #editor::-webkit-scrollbar-thumb,
 #highlight-content::-webkit-scrollbar-thumb {
-    background: #3a3a43;
+    background: #30343c;
+
     border-radius: 10px;
 }
 
-/* SYNTAX COLORS */
+#editor::-webkit-scrollbar-thumb:hover,
+#highlight-content::-webkit-scrollbar-thumb:hover {
+    background: #444a54;
+}
+
+
+/* SYNTAX HIGHLIGHTING */
 
 .comment {
-    color: #777;
+    color: #666d78;
 }
 
 .directive {
-    color: #4da6ff;
+    color: #65a9ff;
+
     font-weight: bold;
 }
 
 .disallow {
-    color: #ff5c5c;
+    color: #ff6b6b;
+
     font-weight: bold;
 }
 
 .allow {
-    color: #55dd88;
+    color: #61d995;
+
     font-weight: bold;
 }
 
 .value {
-    color: #e6e6e6;
+    color: #e4e7eb;
 }
 
-/* RIGHT SIDE */
+
+/* LABELS */
 
 label {
     display: block;
-    margin-bottom: 8px;
-    margin-top: 20px;
 
-    font-size: 14px;
-    color: #aaa;
+    margin-top: 22px;
+    margin-bottom: 8px;
+
+    color: #aeb4be;
+
+    font-size: 13px;
+    font-weight: 600;
 }
+
+
+/* INPUT + SELECT */
 
 input,
 select {
     width: 100%;
 
-    padding: 14px 15px;
+    height: 46px;
 
-    background: #0d0d10;
-    color: white;
+    padding: 0 14px;
 
-    border: 1px solid #303038;
+    background: #08090c;
+
+    color: #ffffff;
+
+    border: 1px solid #30343c;
+
     border-radius: 7px;
 
-    font-size: 15px;
+    font-size: 14px;
 
     outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+/* Focus effect */
 
 input:focus,
 select:focus {
     border-color: #4da6ff;
+
+    box-shadow:
+        0 0 0 3px rgba(77, 166, 255, 0.10);
 }
 
-/* BUTTON */
+
+/* Select arrow area */
+
+select {
+    cursor: pointer;
+}
+
+
+/* TEST BUTTON */
 
 button {
     width: 100%;
 
+    height: 46px;
+
     margin-top: 25px;
 
-    padding: 14px;
-
     background: #4da6ff;
-    color: white;
+
+    color: #ffffff;
 
     border: none;
+
     border-radius: 7px;
 
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
 }
 
+
+/* Hover */
+
 button:hover {
-    opacity: 0.85;
+    background: #358fe8;
+
+    box-shadow:
+        0 8px 20px rgba(77, 166, 255, 0.15);
 }
+
+
+/* Click */
 
 button:active {
     transform: scale(0.98);
 }
 
-/* RESULT */
+
+/* RESULT BOX */
 
 #result-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 120px;
+
     margin-top: 25px;
 
     padding: 25px;
 
-    border-radius: 8px;
+    background: #191c22;
+
+    color: #dfe3e8;
+
+    border: 1px solid #2b3038;
+
+    border-radius: 9px;
 
     text-align: center;
 
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 25px;
+    font-weight: 700;
 
-    background: #24242b;
+    letter-spacing: 0.5px;
 
-    transition: 0.3s;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-/* MOBILE */
 
-@media (max-width: 800px) {
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
 
     body {
-        padding: 20px;
+        padding: 25px;
     }
 
-    .app {
+    .workspace {
         flex-direction: column;
     }
 
     .editor-panel,
     .tester-panel {
         width: 100%;
-        border: 1px solid #292930;
-        border-radius: 12px;
     }
 
+    .editor-panel {
+        border-right: none;
+
+        border-bottom: 1px solid #272a31;
+    }
+
+    .editor-wrapper {
+        height: 450px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .app-header h1 {
+        font-size: 28px;
+    }
+
+    .app-header p {
+        font-size: 14px;
+    }
+
+    .editor-panel,
     .tester-panel {
-        border-top: none;
+        padding: 20px;
     }
 
     .editor-wrapper {
         height: 400px;
+    }
+
+    #highlight-content,
+    #editor {
+        padding: 18px;
+
+        font-size: 14px;
     }
 }

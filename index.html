@@ -1,74 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Robots.txt Checker</title>
 
     <link rel="stylesheet" href="style.css">
-    <script src = "script.js" defer> </script>
+
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
     <main class="app">
 
-        <!-- LEFT SIDE -->
-        <section class="editor-panel">
+        <!-- HEADER -->
+        <header class="app-header">
 
-            <h1>ROBOT.TXT EDITOR</h1>
+            <h1>🤖 Robots.txt Checker</h1>
 
-            <div class="editor-wrapper">
+            <p>
+                Write crawler rules and test whether a bot is allowed
+                to access a URL.
+            </p>
 
-                <div id="highlight-content"></div>
-
-                <textarea
-                    id="editor"
-                    spellcheck="false"
-                    placeholder="Write your robots.txt rules here..."
-                ></textarea>
-
-            </div>
-
-        </section>
+        </header>
 
 
-        <!-- RIGHT SIDE -->
-        <section class="tester-panel">
-
-            <h1>Test-Crawler</h1>
-
-            <label for="bot-select">Select Bot</label>
-
-            <select id="bot-select">
-                <option value="*">All Bots (*)</option>
-                <option value="Googlebot">Googlebot</option>
-                <option value="Bingbot">Bingbot</option>
-            </select>
+        <!-- MAIN WORKSPACE -->
+        <div class="workspace">
 
 
-            <label for="test-url">Test URL Path</label>
+            <!-- LEFT SIDE: EDITOR -->
+            <section class="editor-panel">
 
-            <input
-                type="text"
-                id="test-url"
-                placeholder="/admin"
-            >
+                <h2>ROBOTS.TXT RULES</h2>
 
-            <button id="test-btn">
-                Test URL
-            </button>
+                <div class="editor-wrapper">
+
+                    <div id="highlight-content"></div>
+
+                    <textarea
+                        id="editor"
+                        spellcheck="false"
+                        placeholder="Write your robots.txt rules here..."
+                    ></textarea>
+
+                </div>
+
+            </section>
 
 
-            <div id="result-box">
-                RESULT
-            </div>
+            <!-- RIGHT SIDE: TESTER -->
+            <section class="tester-panel">
 
-        </section>
+                <h2>Test Crawler</h2>
+
+                <p class="tester-description">
+                    Enter a URL path to check crawler access.
+                </p>
+
+
+                <label for="bot-select">
+                    Select Bot
+                </label>
+
+                <select id="bot-select">
+
+                    <option value="*">
+                        All Bots (*)
+                    </option>
+
+                    <option value="Googlebot">
+                        Googlebot
+                    </option>
+
+                    <option value="Bingbot">
+                        Bingbot
+                    </option>
+
+                </select>
+
+
+                <label for="test-url">
+                    Test URL Path
+                </label>
+
+                <input
+                    type="text"
+                    id="test-url"
+                    placeholder="/admin"
+                >
+
+
+                <button id="test-btn">
+                    Test URL
+                </button>
+
+
+                <div id="result-box">
+                    RESULT
+                </div>
+
+            </section>
+
+        </div>
 
     </main>
 
-    <script src="script.js"></script>
-
 </body>
+
 </html>

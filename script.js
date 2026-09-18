@@ -7,9 +7,7 @@ const testButton = document.querySelector("#test-btn");
 const resultBox = document.querySelector("#result-box");
 
 
-// ==========================================
 // DEVELOPER A — TEXT EDITOR
-// ==========================================
 
 // This function changes special HTML characters
 // so the user's input is displayed safely.
@@ -104,9 +102,7 @@ function highlightText() {
 editor.addEventListener("input", highlightText);
 
 
-// ==========================================
 // DEVELOPER A — SCROLL SYNCHRONIZATION
-// ==========================================
 
 editor.addEventListener("scroll", function () {
 
@@ -120,9 +116,7 @@ editor.addEventListener("scroll", function () {
 highlightText();
 
 
-// ==========================================
 // DEVELOPER B — ROBOTS.TXT CHECKER
-// ==========================================
 
 testButton.addEventListener("click", function () {
 
@@ -147,18 +141,14 @@ testButton.addEventListener("click", function () {
     let blocked = false;
 
 
-    // ==========================================
     // GO THROUGH EVERY LINE
-    // ==========================================
 
     for (let i = 0; i < lines.length; i++) {
 
         const line = lines[i].trim();
 
 
-        // ==========================================
         // FIND THE SELECTED BOT
-        // ==========================================
 
         if (line.toLowerCase() ===
             ("user-agent: " + selectedBot).toLowerCase()) {
@@ -169,9 +159,7 @@ testButton.addEventListener("click", function () {
         }
 
 
-        // ==========================================
         // IF WE ARE INSIDE THE BOT'S SECTION
-        // ==========================================
 
         if (insideSection) {
 
@@ -188,9 +176,7 @@ testButton.addEventListener("click", function () {
             }
 
 
-            // ==========================================
             // CHECK DISALLOW
-            // ==========================================
 
             if (line.toLowerCase().startsWith("disallow:")) {
 
@@ -216,9 +202,7 @@ testButton.addEventListener("click", function () {
     }
 
 
-    // ==========================================
     // UPDATE RESULT
-    // ==========================================
 
     if (blocked) {
 
