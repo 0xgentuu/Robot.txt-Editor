@@ -19,6 +19,18 @@ function escapeHTML(text) {
 }
 
 
+// Reset the result box back to its empty state.
+// Used whenever the rules, bot, or test path change,
+// so a stale BLOCKED/ALLOWED never lingers on screen.
+function resetResult() {
+
+    resultBox.textContent = "RESULT";
+
+    resultBox.style.backgroundColor = "";
+    resultBox.style.color = "";
+}
+
+
 // Highlight the robots.txt text
 function highlightText() {
 
@@ -95,6 +107,9 @@ function highlightText() {
 
     // Put the styled HTML into the backdrop
     highlightContent.innerHTML = html;
+
+    // Rules changed, so any previous test result is now stale
+    resetResult();
 }
 
 
@@ -117,6 +132,23 @@ highlightText();
 
 
 // DEVELOPER B — ROBOTS.TXT CHECKER
+
+// Reset the result whenever the bot or test path changes,
+// since a stale result for the wrong bot/path is misleading
+botSelect.addEventListener("change", resetResult);
+testUrl.addEventListener("input", resetResult);
+
+
+// Let the user press Enter in the test path field
+// instead of having to click the button every time
+testUrl.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+
+        testButton.click();
+    }
+});
+
 
 testButton.addEventListener("click", function () {
 
@@ -150,13 +182,23 @@ testButton.addEventListener("click", function () {
 
         // FIND THE SELECTED BOT
 
-if (line.toLowerCase().startsWith("user-agent:")) {
-    const agent = line.split(":").slice(1).join(":").trim();
-    if (agent.toLowerCase() === selectedBot.toLowerCase()) {
-        insideSection = true;
-        continue;
-    }
-}
+        if (line.toLowerCase().startsWith("user-agent:")) {
+
+            const agent = line.split(":").slice(1).join(":").trim();
+
+            if (agent.toLowerCase() === selectedBot.toLowerCase()) {
+
+                insideSection = true;
+
+                continue;
+            }
+
+            // A different User-agent line means we've left
+            // the section we were reading (if any)
+            insideSection = false;
+
+            continue;
+        }
 
 
         // IF WE ARE INSIDE THE BOT'S SECTION
@@ -166,12 +208,6 @@ if (line.toLowerCase().startsWith("user-agent:")) {
 
             // Stop when we reach a blank line
             if (line === "") {
-                break;
-            }
-
-
-            // Stop when we reach another User-agent
-            if (line.toLowerCase().startsWith("user-agent:")) {
                 break;
             }
 
