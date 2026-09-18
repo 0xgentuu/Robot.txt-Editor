@@ -1,32 +1,75 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: #111;
+    background: #0b0b0f;
     color: white;
+    padding: 40px;
 }
+
+/* MAIN CONTAINER */
 
 .app {
-    display: flex;
-    min-height: 100vh;
+    max-width: 1300px;
+    margin: auto;
 }
 
+/* HEADINGS */
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.editor-panel h1,
+.tester-panel h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* TWO COLUMNS */
 
 .editor-panel {
     width: 60%;
     padding: 30px;
+    background: #15151a;
+    border: 1px solid #292930;
+    border-radius: 12px 0 0 12px;
 }
+
+.tester-panel {
+    width: 40%;
+    padding: 30px;
+    background: #15151a;
+    border: 1px solid #292930;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+}
+
+.app {
+    display: flex;
+    align-items: stretch;
+}
+
+/* EDITOR */
 
 .editor-wrapper {
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 550px;
     overflow: hidden;
-    background: #1e1e1e;
+
+    background: #0d0d10;
+    border: 1px solid #303038;
+    border-radius: 8px;
 }
+
+/* Highlight layer + textarea */
 
 #highlight-content,
 #editor {
@@ -38,20 +81,25 @@ body {
     width: 100%;
     height: 100%;
 
-    padding: 20px;
+    padding: 24px;
 
-    font-family: monospace;
+    font-family: "Courier New", monospace;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.8;
 
     white-space: pre-wrap;
+
     overflow: auto;
 }
+
+/* Highlight */
 
 #highlight-content {
     color: white;
     pointer-events: none;
 }
+
+/* Textarea */
 
 #editor {
     background: transparent;
@@ -63,37 +111,151 @@ body {
     outline: none;
 }
 
-.tester-panel {
-    width: 40%;
-    padding: 30px;
-    background: #181818;
+/* SCROLLBAR */
+
+#editor::-webkit-scrollbar,
+#highlight-content::-webkit-scrollbar {
+    width: 8px;
 }
+
+#editor::-webkit-scrollbar-thumb,
+#highlight-content::-webkit-scrollbar-thumb {
+    background: #3a3a43;
+    border-radius: 10px;
+}
+
+/* SYNTAX COLORS */
+
+.comment {
+    color: #777;
+}
+
+.directive {
+    color: #4da6ff;
+    font-weight: bold;
+}
+
+.disallow {
+    color: #ff5c5c;
+    font-weight: bold;
+}
+
+.allow {
+    color: #55dd88;
+    font-weight: bold;
+}
+
+.value {
+    color: #e6e6e6;
+}
+
+/* RIGHT SIDE */
 
 label {
     display: block;
-    margin-top: 20px;
     margin-bottom: 8px;
+    margin-top: 20px;
+
+    font-size: 14px;
+    color: #aaa;
 }
 
 input,
-select,
+select {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #0d0d10;
+    color: white;
+
+    border: 1px solid #303038;
+    border-radius: 7px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #4da6ff;
+}
+
+/* BUTTON */
+
 button {
     width: 100%;
-    padding: 12px;
-    font-size: 16px;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    background: #4da6ff;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
-button {
-    margin-top: 20px;
-    cursor: pointer;
+button:hover {
+    opacity: 0.85;
 }
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* RESULT */
 
 #result-box {
-    margin-top: 30px;
-    padding: 30px;
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
     text-align: center;
-    font-size: 24px;
+
+    font-size: 22px;
     font-weight: bold;
-    background: #333;
+
+    background: #24242b;
+
+    transition: 0.3s;
 }
 
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .app {
+        flex-direction: column;
+    }
+
+    .editor-panel,
+    .tester-panel {
+        width: 100%;
+        border: 1px solid #292930;
+        border-radius: 12px;
+    }
+
+    .tester-panel {
+        border-top: none;
+    }
+
+    .editor-wrapper {
+        height: 400px;
+    }
+}
