@@ -32,6 +32,7 @@
         <!-- MAIN WORKSPACE -->
         <div class="workspace">
 
+
             <!-- LEFT SIDE: EDITOR -->
             <section class="editor-panel">
 
@@ -51,6 +52,7 @@
 
             </section>
 
+
             <!-- RIGHT SIDE: TESTER -->
             <section class="tester-panel">
 
@@ -59,6 +61,7 @@
                 <p class="tester-description">
                     Enter a URL path to check crawler access.
                 </p>
+
 
                 <label for="bot-select">
                     Select Bot
@@ -80,6 +83,7 @@
 
                 </select>
 
+
                 <label for="test-url">
                     Test URL Path
                 </label>
@@ -90,9 +94,11 @@
                     placeholder="/admin"
                 >
 
+
                 <button id="test-btn">
                     Test URL
                 </button>
+
 
                 <div id="result-box">
                     RESULT
@@ -101,6 +107,37 @@
             </section>
 
         </div>
+
+
+        <!-- SITEMAP BULK TEST -->
+        <section class="sitemap-panel">
+
+            <h2>Test All Sitemap URLs</h2>
+
+            <p class="tester-description">
+                Paste a sitemap.xml URL to fetch every page it lists and test
+                each one against the rules above, for the selected bot.
+            </p>
+
+            <div class="sitemap-controls">
+
+                <input
+                    type="text"
+                    id="sitemap-url"
+                    placeholder="https://example.com/sitemap.xml"
+                >
+
+                <button id="sitemap-btn">
+                    Load &amp; Test All
+                </button>
+
+            </div>
+
+            <div id="sitemap-status"></div>
+
+            <div id="sitemap-results"></div>
+
+        </section>
 
     </main>
 
